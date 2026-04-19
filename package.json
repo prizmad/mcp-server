@@ -1,0 +1,48 @@
+{
+  "name": "@prizmad/mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Prizmad — AI-powered UGC video ad generation",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "prizmad",
+    "ai",
+    "video",
+    "ads",
+    "ugc"
+  ],
+  "license": "MIT",
+  "author": "Prizmad <hello@prizmad.com> (https://prizmad.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prizmad/mcp-server.git"
+  },
+  "homepage": "https://prizmad.com",
+  "bugs": {
+    "url": "https://github.com/prizmad/mcp-server/issues"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "prizmad-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
