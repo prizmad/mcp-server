@@ -58,11 +58,28 @@ npm install -g @prizmad/mcp-server
 }
 ```
 
-## Get Your API Key
+## Authentication
+
+### API Key (simple)
 
 1. Sign up at [prizmad.com](https://prizmad.com)
 2. Go to [API Keys](https://prizmad.com/api-keys)
 3. Create a new key (format: `przmad_sk_live_...`)
+
+### OAuth 2.0 (client_credentials)
+
+Exchange your API key for a short-lived JWT:
+
+```bash
+curl -X POST https://prizmad.com/oauth/token \
+  -d grant_type=client_credentials \
+  -d client_id=my-app \
+  -d client_secret=przmad_sk_live_...
+```
+
+Returns `access_token` (JWT, 1 hour TTL) to use as Bearer token.
+
+OAuth discovery: [`/.well-known/oauth-authorization-server`](https://prizmad.com/.well-known/oauth-authorization-server)
 
 ## Available Tools
 
@@ -99,6 +116,8 @@ The agent will:
 - [API Documentation](https://prizmad.com/api/docs) — Interactive API docs
 - [OpenAPI Spec](https://prizmad.com/openapi.json) — Machine-readable spec
 - [MCP Server Card](https://prizmad.com/.well-known/mcp/server-card.json) — Discovery metadata
+- [OAuth Metadata](https://prizmad.com/.well-known/oauth-authorization-server) — OAuth 2.0 discovery
+- [Agent Skills](https://prizmad.com/.well-known/agent-skills/index.json) — Agent skills index
 
 ## License
 
